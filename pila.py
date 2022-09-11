@@ -44,5 +44,24 @@ while True:
     elif opcion==3:
         textoImprimir=int(input("número del elemento que desea ver: "))-1
         print(pilita.verTexto(textoImprimir))
+    elif opcion==4:
+        primer=int(input("# Primer elemento a comparar: "))
+        seg=int(input("# Segundo elemento a comparar: "))
+        pos1=0
+        pos2=0
+        for largo in largos:
+            if primer in largo:
+                primer=largo[0]
+                pos1=largo[1]-1
+        for largo in largos:
+            if seg in largo:
+                seg=largo[0]
+                pos2=largo[1]-1
+        if primer<seg:
+            print(pilita.verTexto(pos2),"es más largo que",pilita.verTexto(pos1))
+        elif primer>seg:
+            print(pilita.verTexto(pos1),"es más largo que",pilita.verTexto(pos2))
+        else:
+            print("Ambos textos miden lo mismo")
     else:
         break
