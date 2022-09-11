@@ -30,7 +30,7 @@ elementos=0
 largos=[]
 while True:
     print("- Elija una operación -")    
-    opcion=int(input("1 - almacenar texto\n2 - ver texto más largo y más corto\n3 - imprimir un texto de la pila\n4 - comparar tamaños\n5 - salir\n"))
+    opcion=int(input("1 - almacenar texto en pila\n2 - ver texto más largo y más corto\n3 - imprimir un texto de la pila\n4 - comparar tamaños\n5 - borrar pila\n6 - salir\n"))
     if opcion==1:
         texto=str(input("texto a apilar: "))
         if texto == '':
@@ -82,6 +82,8 @@ while True:
             else:
                 print("Ambos textos miden lo mismo")
     elif opcion==5:
+        pilita.desapilar()
+    elif opcion==6:
         logging.info('Terminar')
         break
     else:
