@@ -10,7 +10,7 @@ With the program running, you can choose an option from the menu by entering the
 For each operation the input format and instructions are shown on screen.
 
 ## Contribute
-How to contribute
+Feel free to comment any issues or suggestions.
 
 ## Licence
 MIT License
