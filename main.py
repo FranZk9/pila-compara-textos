@@ -1,6 +1,7 @@
 import logging
 logging.basicConfig(filename='logfile.log',
 level=logging.DEBUG,format='%(asctime)s:%(levelname)s:%(message)s')
+logging.info("Inicia ejecución")
 #----------pila-----------------------
 class pila(object):
     def __init__(self):
@@ -34,9 +35,10 @@ while True:
     try:    
         opcion=int(input("1 - almacenar texto en pila\n2 - ver texto más largo y más corto\n3 - imprimir un texto de la pila\n4 - comparar tamaños\n5 - desapilar texto\n6 - salir\n"))
         if opcion==1:
-            texto=str(input("texto a apilar: "))
+            texto=str(input("Ingrese texto a apilar: "))
             if texto == '':
                 print("Entrada vacía")
+                logging.info('Opción 1. Se ingresó una entrada vacía')
             else:
                 pilita.apilar(texto)
                 elementos+=1
@@ -46,6 +48,7 @@ while True:
         elif opcion==2:
             if pilita.is_empty()==True:
                 print("Pila vacía")
+                logging.info("Opción 2. Pila vacía")
             else:
                 masLargo=max(largos)
                 masCorto=min(largos)
@@ -54,21 +57,27 @@ while True:
                 queElementoC=masCorto[1]-1
                 print("El texto más largo es:",pilita.verTexto(queElementoL))    
                 print("El texto más corto es: ",pilita.verTexto(queElementoC))
+                logging.info("Opción 2. Éxito")
         elif opcion==3:
             if pilita.is_empty()==True:
                 print("Pila vacía")
+                logging.info("Opción 3. Pila vacía")
             else:
                 try:
-                    textoImprimir=int(input("número del elemento que desea ver: "))-1
+                    textoImprimir=int(input("Número del elemento que desea ver: "))-1
                     if (textoImprimir+1)>len(largos):
                         print("No existe")
+                        logging.info('Opción 3. El texto solicitado no existe')
                     else:
                         print(pilita.verTexto(textoImprimir))
+                        logging.info("Opción 3. Éxito")
                 except:
                     print("Formato inválido")
+                    logging.info("Opción 3. Se ingresó un formato inválido")
         elif opcion==4:
             if pilita.is_empty()==True:
                 print("Pila vacía")
+                logging.info("Opción 4. Pila vacía")
             else:
                 try:
                     primer=int(input("# Primer elemento a comparar: "))
@@ -105,10 +114,12 @@ while True:
                             print("Ambos textos miden lo mismo")
                 except:
                     print("Formato inválido")
+                    logging.info("Opción 3. Se ingresó un formato inválido")
         elif opcion==5:
             pilita.desapilar()
             if pilita.is_empty()==True:
                 print("Pila ya está vacía")
+                logging.info("Opción 5. Pila ya vacía")
             else:
                 pilita.ver()
         elif opcion==6:
@@ -119,3 +130,4 @@ while True:
             logging.info('Operacion inválida')
     except:
         print("Formato inválido")
+        logging("Opción inválida")
